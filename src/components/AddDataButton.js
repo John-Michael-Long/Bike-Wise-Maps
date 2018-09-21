@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { handleButtonClick } from '../actions/actions.js';
 
+//TODO: separate container from component
+
+
 class dataButton extends React.Component {
   constructor(props) {
     super(props);
