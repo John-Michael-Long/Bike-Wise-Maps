@@ -1,6 +1,6 @@
 import React, { StrictMode, Component } from 'react';
-import MapComponent from './components/MapComponent.js';
-import AddDataButton from './components/AddDataButton.js';
+import MapComponent from './components/MapComponent.jsx';
+import AddDataButton from './components/AddDataButton.jsx';
 import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
 import Leaflet from 'leaflet';
 import './App.css';
