@@ -1,6 +1,6 @@
 import React, { StrictMode, Component } from 'react';
-import MapContainer from './components/MapContainer.jsx';
-import ButtonBar from './components/MenuBar.js';
+import MapComponent from './components/MapComponent.jsx';
+import MenuBarContainer from './containers/MenuBarContainer.js';
 import Leaflet from 'leaflet';
 import './App.css';
 import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
@@ -10,11 +10,11 @@ const App = () => (
   <StrictMode>
     <div className="menu_bar_container">
     <ThemeProvider>
-      <ButtonBar />
+      <MenuBarContainer />
     </ThemeProvider>
     </div>
     <div className="bike_map_container">
-      <MapContainer />
+      <MapComponent />
     </div>
   </StrictMode>
 );

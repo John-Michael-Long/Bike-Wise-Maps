@@ -1,15 +1,15 @@
-import React, { StrictMode, Component } from 'react';
-import { connect } from "react-redux";
-import { Button, IconButton } from 'react-toolbox/lib/button/Button';
+import React from 'react';
+//import { Button, IconButton } from 'react-toolbox/lib/button/Button';
 
-const MenuBar = () => (
-  <div>
-    <Button icon='' label='Add Data' raised primary />
-    <Button icon='' label='Cluster Data' raised primary />
-  </div>
-);
 
-export default MenuBar;
+// const MenuBar = ({handleGetDataClick}) => (
+//   <div>
+//     <Button label='Add Data' onClick={ () => handleGetDataClick() } raised primary />
+//     <Button icon='' label='Cluster Data' raised primary />
+//   </div>
+// );
+
+// export default MenuBar;
 
 // import './assets/toolbox/theme.css';
 // import theme from './toolbox/theme';

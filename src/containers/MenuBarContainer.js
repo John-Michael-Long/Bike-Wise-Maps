@@ -1,23 +1,36 @@
+import React from 'react';
+import MenuBar from '../components/MenuBar.js'
 import { connect } from 'react-redux';
-//import MenuBar from './../components/MenuBar.js';
-import { simpleAction } from './../actions/simpleAction.js';
+import { fetchBikeData } from '../actions/actions.js'
 
-// const mapStateToProps = state => {
-//   return {
-    
-//   }
+let addDataButton = ({getData, isDisplayed}) => {
+
+  let buttonLabel = isDisplayed ? "Remove Data" : "Add Data";
+  return (
+    <button
+      onClick={() => { getData() }}
+      className='btn btn-primary btn-lg btn-block' >
+      {buttonLabel}
+   </button>
+  )
+}
+
+
+// const onClickButton = () => {
+//   dispatch({
+//     type: 'TOGGLE_BUTTON'
+//   })
 // }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-    
-//   }
-// }
+const mapDispatchToProps = { getData: fetchBikeData }
 
-// const MenuBarContainer = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(MenuBar)
+const mapStateToProps = state => {
+  return {
+    isDisplayed: state.dataDisplayed,
+  };
+};
 
+addDataButton = connect(mapStateToProps, mapDispatchToProps)(addDataButton);
 
-export default MenuBarContainer;
+export default addDataButton;
+
