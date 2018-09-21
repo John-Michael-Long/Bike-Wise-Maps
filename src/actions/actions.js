@@ -14,11 +14,13 @@ export const toggleButton = () => ({
   type: TOGGLE_BUTTON, 
 })
 
-// export function onButtonClick() {
+export function handleButtonClick() {
+  return function(dispatch){
+    dispatch(fetchBikeData())
+  }
+}
 
-// }
-
-export function fetchBikeData() {
+function fetchBikeData() {
 
   return function (dispatch) {
     dispatch(requestData());
@@ -30,7 +32,6 @@ export function fetchBikeData() {
     });    
   }
 }
-
 
 const fetchDataAcync = async () => {
   const limit = 50;

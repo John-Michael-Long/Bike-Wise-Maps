@@ -1,9 +1,9 @@
 import React, { StrictMode, Component } from 'react';
 import MapComponent from './components/MapComponent.jsx';
 import MenuBarContainer from './containers/MenuBarContainer.js';
+import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
 import Leaflet from 'leaflet';
 import './App.css';
-import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
 
 
 const App = () => (

@@ -4,7 +4,6 @@ const initialState = {
   dataDisplayed: false,
   loading: false,
   data: []
-
 };
 
 export default (state = initialState, action) => {
@@ -20,9 +19,9 @@ export default (state = initialState, action) => {
   }  
 };
 
-function toggleButtonFunction(state) {
+const toggleButtonFunction = (state) => {
   let newState = Object.assign({}, state);
   newState.dataDisplayed = !newState.dataDisplayed;
-  console.log('isDisplayed:', state.dateDisplayed)
+  console.log('newState:', newState)
   return newState;
 }

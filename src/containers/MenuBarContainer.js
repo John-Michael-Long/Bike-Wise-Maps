@@ -1,36 +1,53 @@
 import React from 'react';
-import MenuBar from '../components/MenuBar.js'
 import { connect } from 'react-redux';
-import { fetchBikeData } from '../actions/actions.js'
+import { handleButtonClick } from '../actions/actions.js';
 
-let addDataButton = ({getData, isDisplayed}) => {
+class dataButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDataDisplayed: false
+    };
+  }
 
-  let buttonLabel = isDisplayed ? "Remove Data" : "Add Data";
-  return (
-    <button
-      onClick={() => { getData() }}
-      className='btn btn-primary btn-lg btn-block' >
-      {buttonLabel}
-   </button>
-  )
+  onButtonClick() {
+    let newState = !this.state.isDataDisplayed
+    this.setState({
+      isDataDisplayed: newState,
+    });
+
+    //TODO: implement logic to check if data has been pulled already
+
+    this.props.handleDataButtonClick()
+  }
+
+  render() {
+    return (
+      <div>
+        <button
+          onClick={() => {  this.onButtonClick() }}
+          className='btn btn-primary btn-lg btn-block' >
+          {this.state.isDataDisplayed ? "Remove Data" : "Add Data"}
+        </button>
+      </div>
+    );
+  }
 }
 
 
-// const onClickButton = () => {
-//   dispatch({
-//     type: 'TOGGLE_BUTTON'
-//   })
-// }
-
-const mapDispatchToProps = { getData: fetchBikeData }
+const mapDispatchToProps = dispatch => ({
+  handleDataButtonClick: () => {
+    dispatch(handleButtonClick());
+  }
+});
 
 const mapStateToProps = state => {
-  return {
-    isDisplayed: state.dataDisplayed,
-  };
+  // return {
+  //   isDisplayed: state.dataDisplayed,
+  // };
+  return state;
 };
 
-addDataButton = connect(mapStateToProps, mapDispatchToProps)(addDataButton);
+dataButton = connect(mapStateToProps, mapDispatchToProps)(dataButton);
 
-export default addDataButton;
-
+export default dataButton;
